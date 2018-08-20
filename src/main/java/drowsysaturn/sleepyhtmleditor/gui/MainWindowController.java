@@ -145,6 +145,20 @@ public class MainWindowController {
     }
 
     @FXML
+    private void onBrowseBackgroundImageClick() {
+        if (selectedElement != null && selectedElement instanceof StandardPanel) {
+            Stage stage = (Stage)documentCanvas.getScene().getWindow();
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open image");
+            File imageFile = fileChooser.showOpenDialog(stage);
+            if (imageFile != null) {
+                ((StandardPanel)selectedElement).setImage(imageFile);
+            }
+            redrawDisplay();
+        }
+    }
+
+    @FXML
     private void onSaveDocumentClick() {
         Stage stage = (Stage)documentCanvas.getScene().getWindow();
         FileChooser fileChooser = new FileChooser();

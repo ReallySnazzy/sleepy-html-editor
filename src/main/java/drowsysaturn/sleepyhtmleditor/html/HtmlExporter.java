@@ -76,6 +76,36 @@ public class HtmlExporter {
             StandardPanel elementStandardPanel = (StandardPanel)element;
             writer.println("background-color: " + colorRgba(elementStandardPanel.getBackgroundColor()) + ";");
             writer.println("display: block;");
+            switch (elementStandardPanel.getBackgroundStyle()) {
+                case SOLID_COLOR:
+                    break;
+                case STRETCH:
+                    writer.println("background-repeat: no-repeat;");
+                    writer.println("background-size: 100% 100%;");
+                    if (elementStandardPanel.getImageFile() != null) {
+                        writer.println("background-image: url('" + elementStandardPanel.getImageFile().getName() + "');");
+                    }
+                    break;
+                case COVER:
+                    writer.println("background-repeat: no-repeat;");
+                    writer.println("background-size: cover;");
+                    if (elementStandardPanel.getImageFile() != null) {
+                        writer.println("background-image: url('" + elementStandardPanel.getImageFile().getName() + "');");
+                    }
+                    break;
+                case ORIGINAL:
+                    writer.println("background-repeat: no-repeat;");
+                    if (elementStandardPanel.getImageFile() != null) {
+                        writer.println("background-image: url('" + elementStandardPanel.getImageFile().getName() + "');");
+                    }
+                    break;
+                case REPEAT:
+                    writer.println("background-repeat: repeat;");
+                    if (elementStandardPanel.getImageFile() != null) {
+                        writer.println("background-image: url('" + elementStandardPanel.getImageFile().getName() + "');");
+                    }
+                    break;
+            }
         }
         ScreenCoordinate position = element.getPosition();
         ScreenCoordinate size = element.getSize();

@@ -110,7 +110,7 @@
                               <Label text="Background style" GridPane.rowIndex="3" />
                               <ChoiceBox fx:id="selectedBackgroundStyleChoiceBox" disable="true" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label text="Background image" GridPane.rowIndex="4" />
-                              <Button fx:id="selectedBackgroundImageBrowseButton" disable="true" mnemonicParsing="false" text="Browse" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Button fx:id="selectedBackgroundImageBrowseButton" disable="true" mnemonicParsing="false" onAction="#onBrowseBackgroundImageClick" text="Browse" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                               <Label text="Text" GridPane.rowIndex="8" />
                               <TextField fx:id="selectedTextContentTextBox" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                               <Label text="Text color" GridPane.rowIndex="9" />

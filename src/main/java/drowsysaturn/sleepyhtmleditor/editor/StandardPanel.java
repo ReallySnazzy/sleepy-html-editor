@@ -91,6 +91,13 @@ public class StandardPanel extends DocumentElement {
         imageIsFile = true;
     }
 
+    public File getImageFile() {
+        if (!imageIsFile) {
+            return null;
+        }
+        return imageFile;
+    }
+
     /**
      * Sets the image to use for background.
      */
