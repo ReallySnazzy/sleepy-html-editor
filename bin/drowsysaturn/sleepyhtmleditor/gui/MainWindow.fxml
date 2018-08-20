@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="drowsysaturn.sleepyhtmleditor.gui.MainWindowController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Pane fx:id="centerPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <right>
+      <Accordion prefHeight="374.0" prefWidth="262.0" BorderPane.alignment="CENTER">
+        <panes>
+            <TitledPane animated="false" text="Create">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onCreateStandardButtonClick" prefHeight="26.0" prefWidth="173.0" text="Create standard rectangle" />
+                        <Button layoutX="14.0" layoutY="53.0" mnemonicParsing="false" onAction="#onCreateTextButtonClick" prefHeight="26.0" prefWidth="174.0" text="Create text rectangle" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane prefHeight="200.0" prefWidth="200.0" text="Edit">
+               <content>
+                  <FlowPane hgap="10.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#onDeleteSelectedClick" text="Delete" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </FlowPane>
+               </content>
+            </TitledPane>
+          <TitledPane animated="false" prefHeight="514.0" prefWidth="262.0" text="Selected item">
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <GridPane prefHeight="567.0" prefWidth="239.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Background color" GridPane.rowIndex="1" />
+                              <ColorPicker fx:id="selectedBackgroundColorPicker" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Background opacity" GridPane.rowIndex="2" />
+                              <TextField fx:id="selectedBackgroundOpacityText" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Background style" GridPane.rowIndex="3" />
+                              <ChoiceBox fx:id="selectedBackgroundStyleChoiceBox" disable="true" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="Background image" GridPane.rowIndex="4" />
+                              <Button fx:id="selectedBackgroundImageBrowseButton" disable="true" mnemonicParsing="false" text="Browse" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="Text" GridPane.rowIndex="8" />
+                              <TextField fx:id="selectedTextContentTextBox" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <Label text="Text color" GridPane.rowIndex="9" />
+                              <ColorPicker fx:id="selectedTextColorPicker" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <Label text="Text size" GridPane.rowIndex="10" />
+                              <TextField fx:id="selectedTextSizeTextBox" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                              <Label text="Font family" GridPane.rowIndex="11" />
+                              <TextField fx:id="selectedTextFontTextBox" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                              <Label text="Background">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Text" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Positioning" GridPane.rowIndex="14">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label GridPane.rowIndex="15" />
+                              <Label text="Position X" GridPane.rowIndex="17" />
+                              <Label text="Size X" GridPane.rowIndex="15" />
+                              <TextField fx:id="selectedSizeTextBoxX" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                              <TextField fx:id="selectedPositionTextBoxX" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+                              <Button fx:id="selectedApplyPositionButton" disable="true" mnemonicParsing="false" onAction="#onApplyPositionClick" text="Apply position" GridPane.rowIndex="19" />
+                              <Button fx:id="selectedApplyTextButton" disable="true" mnemonicParsing="false" onAction="#onApplyTextClick" text="Apply text" GridPane.rowIndex="12" />
+                              <Button fx:id="selectedApplyBackgroundButton" disable="true" mnemonicParsing="false" onAction="#onApplyBackgroundClick" text="Apply background" GridPane.rowIndex="5" />
+                              <Label text="Size Y" GridPane.rowIndex="16" />
+                              <Label text="Position Y" GridPane.rowIndex="18" />
+                              <TextField fx:id="selectedSizeTextBoxY" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                              <TextField fx:id="selectedPositionTextBoxY" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                           </children>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Entire document">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="57.0" text="Title" />
+                        <TextField fx:id="htmlDocumentTitleTextField" layoutX="50.0" layoutY="53.0" promptText="Cool Awesome Website" />
+                        <Button fx:id="saveHtmlDocumentButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onSaveDocumentClick" text="Save document" />
+                     </children></AnchorPane>
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </right>
+</BorderPane>
