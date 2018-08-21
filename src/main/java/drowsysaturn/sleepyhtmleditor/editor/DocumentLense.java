@@ -2,6 +2,10 @@ package drowsysaturn.sleepyhtmleditor.editor;
 
 import java.awt.image.BufferedImage;
 
+/**
+ * The wrapper around the document tree, allows easier access to tree functions. 
+ * Maintains the root node. Helps abstract selection, deletion, and rendering.
+ */
 public class DocumentLense {
     private DocumentElement root;
 

@@ -3,7 +3,14 @@ package drowsysaturn.sleepyhtmleditor.editor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Encodes and decodes SingleScreenCoordinates into String objects.
+ */
 public class CoordinateCoder {
+    /**
+     * Converts a valid ScreenCoordinateSingle String to its respective object.
+     * @throws CoordinateCodingException If the string is not a valid coordinate.
+     */
     public static ScreenCoordinateSingle decode(String encodedString) throws CoordinateCodingException {
         Pattern pattern = Pattern.compile("\\s*(\\-?\\d*\\.?\\d*)\\%\\s*\\+\\s*(\\-?\\d+)px");
         Matcher matcher = pattern.matcher(encodedString);

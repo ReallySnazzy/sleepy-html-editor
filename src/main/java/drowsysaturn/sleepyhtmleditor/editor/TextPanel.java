@@ -8,7 +8,17 @@ import java.util.ArrayList;
 import java.awt.Font;
 
 /**
- * Web builder node that supports text.
+ * A panel similar to StandardPanel, which supports background colors and images. 
+ * The difference from StandardPanel is that this panel supports text.
+ * The text can have its font family, size, and color changed.
+ * Example usage:
+ * <code>
+ * ScreenCoordinate position = new ScreenCoordinate(0.25, 0, 0, 0);
+ * ScreenCoordinate size = new ScreenCoordinate(0, 0.5, 50, 0);
+ * TextPanel textPanel = new TextPanel(position, size, "Interesting Co.");
+ * textPanel.setForegroundColor(java.awt.Color.BLACK);
+ * textPanel.setFontSize(24);
+ * </code>
  */
 public class TextPanel extends StandardPanel {
 
@@ -40,6 +50,10 @@ public class TextPanel extends StandardPanel {
         this.font = new Font(fontFamily, Font.PLAIN, fontSize);
     }
 
+    /**
+     * Sets the font family.
+     * Example: Verdana
+     */
     public void setFontFamily(String fontFamily) {
         if (fontFamily == null) {
             throw new IllegalArgumentException("Font must not be null");
@@ -48,10 +62,16 @@ public class TextPanel extends StandardPanel {
         updateFont();
     }
 
+    /**
+     * Gets the previously set font family. Default: SansSerif
+     */
     public String getFontFamily() {
         return fontFamily;
     }
 
+    /**
+     * Sets the font point size.
+     */
     public void setFontSize(int fontSize) {
         if (fontSize <= 0) {
             throw new IllegalArgumentException("Font size must not be negative");
@@ -60,6 +80,9 @@ public class TextPanel extends StandardPanel {
         updateFont();
     }
 
+    /**
+     * Gets the previously set font point size. Default: 16
+     */
     public int getFontSize() {
         return fontSize;
     }

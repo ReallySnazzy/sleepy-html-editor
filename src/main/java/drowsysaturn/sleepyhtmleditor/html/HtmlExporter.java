@@ -13,7 +13,7 @@ import drowsysaturn.sleepyhtmleditor.editor.StandardPanel;
 import drowsysaturn.sleepyhtmleditor.editor.TextPanel;
 
 /**
- * Exports a document tree into html.
+ * Converts a DocumentElement tree into a single HTML document with appropriate CSS.
  * 
  * The document tree is traversed twice to while exporting because the file is not kept in memory.
  * The tree is written out as the tree is traversed to lower memory usage.
@@ -52,10 +52,16 @@ public class HtmlExporter {
         writer.close();
     }
 
+    /**
+     * Writes the title that was earlier specified to the output document.
+     */
     public void writeTitle(PrintWriter writer) throws IOException {
         writer.print(documentTitle);
     }
 
+    /**
+     * Writes the style to the specified printwriter starting from the root node of the DocumentLense.
+     */
     public void writeStyle(PrintWriter writer) throws IOException {
         writeStyleTree(writer, new ExporterNamer(), lense.getRoot());
     }
@@ -64,6 +70,12 @@ public class HtmlExporter {
         writeBodyTree(writer, new ExporterNamer(), lense.getRoot());
     }
 
+    /**
+     * Writes necessary CSS starting from element and descending the tree.
+     * The namer is a name generator and since the body and css descend the tree at the same rate, allows the
+     * names to correspond correctly.
+     * @param writer Location to write the generated stylesheet.
+     */
     private void writeStyleTree(PrintWriter writer, ExporterNamer namer, DocumentElement element) throws IOException {
         String name = namer.nextName();
         writer.println("." + name + " {");
@@ -120,10 +132,18 @@ public class HtmlExporter {
         }
     }
 
+    /**
+     * Converts the specified AWT Color to a valid CSS rule string.
+     */
     private String colorRgba(Color color) {
         return "rgba(" + color.getRed() + ", " + color.getGreen() + ", " + color.getBlue() + ", " + ((double)color.getAlpha()/255) + ")";
     }
 
+    /**
+     * Writes necessary HTML starting at the node element and descending the tree.
+     * The namer is a name generator and since the body and css descend the tree at the same rate, allows the
+     * names to correspond correctly.
+     */
     private void writeBodyTree(PrintWriter writer, ExporterNamer namer, DocumentElement element) throws IOException {
         String name = namer.nextName();
         writer.print("<div class=\"" + name + "\">");

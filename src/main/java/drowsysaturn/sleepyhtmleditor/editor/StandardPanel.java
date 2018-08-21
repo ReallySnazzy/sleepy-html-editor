@@ -8,6 +8,22 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * This is an empty box element. 
+ * Can be filled with a color or a background image. Background images have various styles.
+ * To change the background style use setBackgroundStyle.
+ * 
+ * Example usage:
+ * <code>
+ * ScreenCoordinate position = new ScreenCoordinate(-400, 0.5, -200, 0.5);
+ * ScreenCoordinate size = new ScreenCoordinate(800, 0, 400, 0);
+ * StandardPanel panel = new StandardPanel(position, size);
+ * panel.setBackgroundColor(java.awt.Color.RED);
+ * panel.setImage(new File("money.jpg"));
+ * panel.setBackgroundStyle(BackgroundStyle.STRETCH);
+ * documentLense.getRoot().addChild(panel);
+ * </code>
+ */
 public class StandardPanel extends DocumentElement {
     /**
      * File to use for generating this panel.
@@ -61,15 +77,29 @@ public class StandardPanel extends DocumentElement {
         loadedImage = null;
     }
 
+    /**
+     * Sets the background style to one of the BackgroundStyle options.
+     * @throws IllegalArgumentException If the specified style is null.
+     */
     public void setBackgroundStyle(BackgroundStyle style) {
+        if (style == null) {
+            throw new IllegalArgumentException("Background style may not be null");
+        }
         this.style = style;
         this.imageChanged = true;
     }
 
+    /**
+     * Gets the previously set background style for this object. Defaults to BackgroundStyle.ORIGINAL.
+     */
     public BackgroundStyle getBackgroundStyle() {
         return style;
     }
 
+    /**
+     * Sets the background color for the standard panel.
+     * @throws IllegalArgumentException If null is specified as the background color.
+     */
     public void setBackgroundColor(Color color) {
         if (color == null) {
             throw new IllegalArgumentException("StandardPanel must have a non-null color.");
@@ -78,6 +108,9 @@ public class StandardPanel extends DocumentElement {
         this.imageChanged = true;
     }
 
+    /**
+     * Gets the previously set background color of the standard panel. Defaults to Color.GRAY.
+     */
     public Color getBackgroundColor() {
         return color;
     }
@@ -91,6 +124,11 @@ public class StandardPanel extends DocumentElement {
         imageIsFile = true;
     }
 
+    /**
+     * Gets the image file if one was added and this panel's image mode is to load from a file.
+     * @see setImage(File)
+     * @see setImage(BufferedImage)
+     */
     public File getImageFile() {
         if (!imageIsFile) {
             return null;
